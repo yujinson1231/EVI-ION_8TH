@@ -1,0 +1,43 @@
+<!DOCTYPE html> <!-- 모든 브라우저가 html에서 주석을 이와 같은 방법으로 처리하므로 app.py 처럼 #으로 주석 달지 않도록 주의하기,
+ #은 HTML 문법상 주석이 아니므로 브라우저는 이를 일반 텍스트로 인식할 수 있음-->
+<html>
+<head>
+    <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+    <title>방명록</title> <!-- 페이지 제목 -->
+</head>
+<body>
+    <h1>방명록 시스템</h1> 
+
+    <form action="/search" method="get"> <!-- GET 방식으로 /search 호출 -->
+        <input type="text" name="q" placeholder="검색어 입력"> <!-- 검색어 입력 필드 -->
+        <button type="submit">검색</button> <!-- 제출 버튼 -->
+    </form>
+
+    <hr> <!-- 구분선 -->
+
+    <!-- 방명록 작성 폼-->
+    <form action="/write" method="post"> <!-- POST 방식으로 /write 호출 -->
+        <input type="text" name="name" placeholder="이름"><br> <!-- 이름 입력 -->
+        <textarea name="message" placeholder="메시지"></textarea><br> <!-- 메시지 입력 -->
+        <button type="submit">작성</button> <!-- 작성 버튼 -->
+    </form>
+
+    <hr> <!-- 구분선 -->
+
+    <!-- 모든 방명록 출력, Stored XSS 가능 -->
+    <h2>모든 방명록</h2>
+
+    {# 아래는 Jinja 반복문: messages 리스트를 순회 #}
+    {% for m in messages %} 
+        {# m[1]: 이름, m[2]: 메시지 #}
+        {# 필터링 없이 출력 → Stored XSS 취약점 존재 (과제/테스트 목적) #}
+        <p>{{ m[1] }}: {{ m[2]|safe }}</p>
+    {% endfor %}
+
+    {# 
+       참고: HTML 주석 <!-- ... --> 안에 {{ ... }} 또는 {% ... %} 같은 Jinja 표기를 넣으면 
+       Jinja가 그 안도 파싱하려 하기 때문에 오류가 발생할 수 있음
+       템플릿 설명은 Jinja 주석 {# ... #}을 사용
+    #}
+</body>
+</html>
