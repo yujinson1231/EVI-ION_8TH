@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko"><!-- 문서 타입 선언, 한국어 페이지임을 명시 -->
+    <head>
+        <meta charset="UTF-8"><!-- 문자 인코딩을 UTF-8로 설정 (한글 깨짐 방지) -->
+        <title>로그인</title><!-- 브라우저 탭에 표시될 제목 -->
+    </head>
+    <body>
+        <h1>로그인</h1><!-- 페이지 상단의 제목 -->
+        <form action="login_process.php" method="POST"><!-- action 속성: 데이터를 전송할 서버 파일 (login_process.php) -->
+            <p>
+                <label for="username">아이디: </label> <!-- username 입력 필드와 연결된 라벨 -->
+                <input type="text" id="username" name="username" required><!-- 텍스트 입력칸 -->
+            </p>
+            <p>
+                <label for="password">비밀번호: </label><!-- password 입력 필드와 연결된 라벨 -->
+                <input type="password" id="password" name="password" required>
+            </p>
+            <p>
+                <input type="submit" value="로그인"><!-- 폼 제출 버튼 -->
+            </p>
+        </form>
+    </body>
+</html>
