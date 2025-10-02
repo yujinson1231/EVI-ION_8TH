@@ -17,6 +17,11 @@ int __fastcall main(int argc, const char **argv, const char **envp)
     puts("Wrong");
   return 0;
 }  
+'''
+
 
 - 풀이
-sub_140001000(v4)가 true가 나오기 위해 함수 정의를 살펴봤을때 strcmp(a1, "Compar3_the_str1ng") == 0를 반환하는 함수라서 전달받은 v4가 Compar3_the_str1ng라는 것을 알 수 있었고 이는 사용자가 입력한 문자배열이므로 입력값을 검증할 수 있었다.
+
+sub_140001000(v4)가 true가 나오기 위해 함수 정의를 살펴봤을때
+ strcmp(a1, "Compar3_the_str1ng") == 0를 반환하는 함수라서 전달받은 v4가 Compar3_the_str1ng라는 것을 알 수 있었고
+이는 사용자가 입력한 문자배열이므로 입력값을 검증할 수 있었다.
