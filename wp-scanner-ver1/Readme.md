@@ -7,14 +7,22 @@ Python 3.11
 
 
 2. 디렉터리 구조
-wp-scanner-ver1/ 
+wp-scanner-ver1/
+
 ├─ Dockerfile 
+
 ├─ Readme - 이 파일
+
 ├─ requirements.txt
+
 ├─ scanner_broken_access_control.py
+
 ├─ analyzer.py 
+
 └─ plugins/ 
+
        └─ vulnerable-plugin/ 
+       
               └─ vuln.php 
 
 ​
@@ -64,12 +72,13 @@ docker run --rm wp-scanner-ver1
 
 5. vulnerable-plugin/vuln.php 예제
 
-분석 대상은  먼저 아래와 같은 의도적으로 취약한 플러그인이다.
+먼저 분석 대상은 의도적으로 취약한 플러그인이다.
 wp_ajax_update_setting은 로그인 사용자라면 호출 가능
 current_user_can('manage_options') 등 권한 검증이 전혀 없음
 관리자 설정값(siteurl) 변경 가능
 
 -실행 결과
+
 <img width="652" height="378" alt="vuln php 결과" src="https://github.com/user-attachments/assets/d104e79e-c637-4b88-80c6-1d9e3893e7aa" />
 
 관리자 기능에 대한 권한 검증 누락 탐지 성공
@@ -77,3 +86,4 @@ current_user_can('manage_options') 등 권한 검증이 전혀 없음
 신뢰도 Medium → 정적 분석 특성상 구조 분석 미완전(추후에 확장 버전으로 confidence = High로 바꾸고자 함)
 
 ​
+
