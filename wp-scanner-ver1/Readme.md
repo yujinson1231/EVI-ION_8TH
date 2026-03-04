@@ -7,24 +7,18 @@ Python 3.11
 
 
 2. 디렉터리 구조
+
+```
 wp-scanner-ver1/
-
 ├─ Dockerfile 
-
 ├─ Readme - 이 파일
-
 ├─ requirements.txt
-
 ├─ scanner_broken_access_control.py
-
 ├─ analyzer.py 
-
 └─ plugins/ 
-
        └─ vulnerable-plugin/ 
-       
               └─ vuln.php 
-
+```
 ​
 
 3. 함수 기능 및 설명
@@ -86,4 +80,5 @@ current_user_can('manage_options') 등 권한 검증이 전혀 없음
 신뢰도 Medium → 정적 분석 특성상 구조 분석 미완전(추후에 확장 버전으로 confidence = High로 바꾸고자 함)
 
 ​
+
 
