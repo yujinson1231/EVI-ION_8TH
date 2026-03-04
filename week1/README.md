@@ -17,8 +17,10 @@
 python app.py
 
 ## 파일구조
+```
 week1/
 ├── app.py              # Flask 애플리케이션
 ├── templates/
 │   └── index.html      # 메인 페이지 템플릿
 └── README.md           # 이 파일
+```
